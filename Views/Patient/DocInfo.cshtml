@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Avaiable Doctors";
+} 
+@model List<Project.Models.ViewModel.DocInfo>
+@section Logout{
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1 justify-content-end">
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="Home">Home</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="DocInfo">Doctors</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="UserAppointment">My Appointment</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="MakeApointment">Make An Appointment</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+        </li>
+    </ul>
+</div>
+   
+}
+@section Img{
+    <img src="../images/5.jpg" class ="w-100 mt-2">
+}
+
+<br />
+@*<script>
+    var mydata;
+    var id;
+    $(document).ready(function () {
+        $.ajax
+            ({
+                type: "GET", url: "/Patient/DocInfo",
+                success: function (Model) {
+                    myData = Model
+                    if (myData != null || myData != "") {
+                        function createBtn() {
+                            return '<button id="del" class="btn fa fa-trash"></button>'
+                        }
+                        table = $('#DocTable').DataTable
+                            ({
+                                data: myData, destroy: true,
+                                columnDefs:
+                                    [{
+                                        "targets": -1, "data": null,
+                                        "defaultContent": createBtn()
+                                    }],
+                                columns: [
+                                   { title: "Doctor ID." }, { title: "Doctor Name" }, { title: "Education" },{ title: "Speciality" },{ title: "Appointment Date" }, { title: "Appointment Day" }, { title: "Available Time" } , { title: "Action" }
+                                ]
+                            });
+                    }
+                }
+            });
+        $('#del').on('click', 'td button', function () {
+            var closestRow = $(this).closest('tr');
+            var arr = table.row(closestRow).data();
+            id = arr[0]
+            console.log(id)
+            $.ajax({
+                url: "/Patient/DocInfo",
+                type: "POST",
+                data: { "id": id },
+                success: function () {
+                    window.location='/Patient/DocInfo';
+                }
+            });
+        });
+    });
+</script> *@
+<div class="table-responsive border p-2">
+    <h2 ><b>Doctor Schedule List</b></h2> 
+    <table id="example" class="display table table-hover table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th>Doctor ID</th>
+                <th>Doctor Name</th>
+                <th>Eduction</th>
+                <th>Speciality</th>
+                <th>Appointment Date</th>
+                <th>Appointment Day</th>
+                <th>Available Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-left">1<td>
+                <td class="text-left">Ayesha</td>
+                <td class="text-left">MBBS</td>
+                <td class="text-left">ENT</td>
+                <td class="text-left">9/1/2022</td>
+                <td class="text-left">02:57PM</td>
+                <td><button id="del" class="btn">Make Appointment</button></td>
+            </tr>
+        </tbody>
+        <tfoot class="table-dark">
+            <tr>
+                <th>Doctor Name</th>
+                <th>Eduction</th>
+                <th>Speciality</th>
+                <th>Appointment Date</th>
+                <th>Appointment Day</th>
+                <th>Available Time</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+
+    $(document).ready(function() {
+    $('#example').DataTable();
+    } );
+</script>

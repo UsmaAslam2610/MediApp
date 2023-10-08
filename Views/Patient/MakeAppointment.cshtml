@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Logout{
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1 justify-content-end">
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="Home">Home</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="DocInfo">Doctors</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="My Appointment">My Appointment</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="MakeAppointment">Make An Appointment</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+        </li>
+    </ul>
+</div>
+   
+}
+@section Img{
+    <img src="../images/5.jpg" class ="w-100 mt-2">
+}
+<br />
+@*<script>
+    var mydata;
+    var id;
+    $(document).ready(function () {
+        $.ajax
+            ({
+                type: "GET", url: "/Patient/Home",
+                dataType: "json"
+                success: function (Model) {
+                    myData = Model
+                    if (myData != null || myData != "") {
+                        function createBtn() {
+                            return '<button id="MApp" data-bs-toggle="modal" data-bs-target="#AppForm" >Make an Appointment</button>'
+                        }
+                        table = $('#DocTable').DataTable
+                            ({
+                                data: myData, destroy: true,
+                                columnDefs:
+                                    [{
+                                        "targets": -1, "data": null,
+                                        "defaultContent": createBtn()
+                                    }],
+                                columns: [
+                                   { title: "Doctor ID." }, { title: "Doctor Name" }, { title: "Education" },{ title: "Speciality" },{ title: "Appointment Date" }, { title: "Appointment Day" }, { title: "Available Time" } , { title: "Action" }
+                                ]
+                            });
+                    }
+                }
+            });
+       $('#DocTable').on('click', 'button.editing', function () {
+                        var closestRow = $(this).closest('tr');
+                        var arr = table.row(closestRow).data();
+                        id = arr[0]
+                    });
+    });
+     function bookAppointment() {
+        quant = document.getElementById("changedQuantity").value
+        pri = document.getElementById("changedPrice").value
+        ammou = document.getElementById("changedAmount").value
+        $.ajax({
+            url: "/updateitem",
+            type: "POST",
+            data: { "id": id, "quantity": quant, "price": pri, "amount": ammou },
+            success: function () {
+                window.location='/items';
+            }
+        });
+      }
+    </script> *@
+@model List<Project.Models.ViewModel.DocInfo>
+<script>$(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+<div class="table-responsive border p-2">
+    <h2 ><b>Doctor Schedule List</b></h2> 
+    <table id="myTable" class="display table table-hover table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th>Doctor ID</th>
+                <th>Doctor Name</th>
+                <th>Eduction</th>
+                <th>Speciality</th>
+                <th>Appointment Date</th>
+                <th>Appointment Day</th>
+                <th>Available Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var obj in Model)
+            {
+            <tr>
+                <td class="text-left">@obj.id<td>
+                <td class="text-left">@obj.Name</td>
+                <td class="text-left">@obj.Education</td>
+                <td class="text-left">@obj.Speciality</td>
+                <td class="text-left">@obj.AppDate</td>
+                <td class="text-left">@obj.AvailTime</td>
+                <td><button asp-action = "Make" asp-route-id = "@obj.id" class="btn" data-bs-toggle="modal" data-bs-target="#AppForm">Make Appointment</button></td>
+            </tr>
+            }
+        </tbody>
+        <tfoot class="table-dark">
+            <tr>
+                <th>Doctor ID</th>
+                <th>Doctor Name</th>
+                <th>Eduction</th>
+                <th>Speciality</th>
+                <th>Appointment Date</th>
+                <th>Appointment Day</th>
+                <th>Available Time</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="modal fade" id="AppForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Make An Appointment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Patient Name</label>
+                            <input readonly type="text" class="form-control" id="pname" name="Name"
+                                value=" " required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gender</label>
+                            <input readonly type="text" class="form-control" id="pGender" name="Gender"
+                                value=" " required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input readonly type="text" class="form-control" id="pAddress" name="Address" value=" " required />
+                            <label class="form-label">Age</label>
+                            <input readonly type="number" class="form-control" id="pAge" name="Age" value=" " required />
+                        </div>
+                        <div> <h2 ><b>Appointment Deatils</b></h2> </div>
+                        <div class="mb-3">
+                            <label class="form-label">Doctor Name</label>
+                            <input readonly type="text" class="form-control" id="dname" name="dName"
+                                value=" " required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Appointment Date</label>
+                            <input readonly type="text" class="form-control" id="AppDate" name="AppDate"
+                                value=" " required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Appointment Day</label>
+                            <input readonly type="text" class="form-control" id="AppDay" name="AppDay" value=" " required />
+                        </div>
+                        <div class=" mb-3">
+                             <label class="form-label">Availble Time</label>
+                            <input readonly type="text" class="form-control" id="AvailTime" name="AvailTime" value=" " required />
+                        </div>
+                        <div class=" mb-3">
+                             <label class="form-label">Reason For Appointment</label>
+                            <input type="text" class="form-control" id="Reason" name="Deson" placeholder = "Add Reason for Appointment" required />
+                        </div>"
+                        <div class="modal-footer d-block">
+                            <button type="submit" class="btn btn-warning float-end" onclick='bookAppointment();'>Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

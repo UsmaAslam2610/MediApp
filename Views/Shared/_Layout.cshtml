@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Online Appointment App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Project.styles.css" asp-append-version="true" />
+
+     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/font-awesome.min.css" asp-append-version="true" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	
+	
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a style="text-decoration:none; font-size: x-large;" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><span id="logo">ONLINE DOCTOR</span> APPOINTMENT SYSTEM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @RenderSection("Login", false)
+                @RenderSection("Logout", false)
+            </div>
+        </nav>
+    </header>
+    
+    @RenderSection("Carousel",false)
+    @RenderSection("Img",false)
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-light border-top mainfooter text-muted" role="contentinfo">
+       <div class="footer-middle">
+         <div class="container">
+                      <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                          <!--Column1-->
+                          <div class="col-8 footer-pad">
+                            <div class="col header navbar-band m-0">
+                                <h4><a style="text-decoration:none;font-size:large;color:black;" href="/"><b>ONLINE DOCTOR APPOINTMENT SYSTEM</b></a></h4>
+                            </div>
+                            <h7>Working Days: </h7>
+                            <p>Mon - Sun / 9:00AM - 11:00PM</p>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                          <!--Column1-->
+                          <div class="footer-pad">
+                            <h4>City</h4>
+                            <ul class="list-unstyled">
+                              <li><a href="#">Lahore</a></li>
+                              <li><a href="#">Sargodha</a></li>
+                              <li><a href="#">Gujranwala</a></li>
+                              <li><a href="#">Islamabad</a></li>
+                              <li><a href="#">Sialkot</a></li>
+                              <li><a href="#">Karachi</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                          <!--Column1-->
+                          <div class="footer-pad">
+                            <h4>Reach Us At</h4>
+                            <ul class="list-unstyled">
+                                <h7>Emails: </h7>
+                              <li><a href="#">bitf19a008@pucit.edu.pk</a></li>
+                              <li><a href="#">bitf19a031@pucit.edu.pk</a></li>
+                              <li><a href="#">bitf19a038@pucit.edu.pk</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                          <div class="col-md-3">
+                              <h4>Follow Us</h4>
+                              <ul class="social-network social-circle">
+                               <li><a href="https://www.facebook.com" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.linkedin.com" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                               <li><a href="https://www.instagram.com" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                              </ul>				
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12 copy">
+                              <p class="text-center">&copy; Copyright 2022 - Online Doctor Appointment App - <a style = "text-decoration: none; font-weight:bold; color: Black" asp-area="" asp-controller="Home" asp-action="Index">Home</a><br />All rights reserved.</p>
+                          </div>
+                      </div>
+         </div>
+       </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Datatables/jquery.dataTables.js"></script>
+    <script src="~/Datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

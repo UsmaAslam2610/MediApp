@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Logout{
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1 justify-content-end">
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="Home">Home</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="DocInfo">Doctors</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="UserAppointment">My Appointment</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="MakeAppointment">Make An Appointment</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+        </li>
+    </ul>
+
+</div>
+}
+@section Img{
+    <img src="../images/5.jpg" class ="w-100 mt-2">
+}
+<div class="table-responsive border p-2">
+    <h2 ><b>My Appointments</b></h2> 
+    <table id="userApp" class="display table table-hover table-striped table-bordered" style="width:100%">
+          <thead class="table-dark">
+          <tr>
+                <th>appNo</th>
+                <th>DocName</th>
+                <th>AppTime</th>
+                <th>AppDate</th>
+                <th>AppDay</th>
+                <th>AppStatus</th>
+                <th>Cancel</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+            <tr>
+                <td class="text-left">@obj.appNo</td>
+                <td class="text-left">@obj.DocName</td>
+                <td class="text-left">@obj.AppDate</td>
+                <td class="text-left">@obj.AppDay</td>
+                <td class="text-left">@obj.AppTime</td>
+                <td class="text-left">@obj.AppStatus</td>
+                <td><button id="del" class="btn fa fa-trash"></button></td>
+            </tr>
+            }
+        </tbody>
+       <tfoot class="table-dark">
+             <tr>
+                <th>appNo</th>
+                <th>DocName</th>
+                <th>AppTime</th>
+                <th>AppDate</th>
+                <th>AppDay</th>
+                <th>AppStatus</th>
+                <th>Cancel</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+@*<script>
+    var mydata;
+    var id;
+    $(document).ready(function () {
+        $.ajax
+            ({
+                type: "GET", url: "/Patient/GetAppointments",
+                success: function (result) {
+                    myData = result
+                    alert(JSON.stringify(myData));
+                    if (myData != null || myData != "") {
+                        function createBtn() {
+                            return '<button id="del" class="btn fa fa-trash"></button>'
+                        }
+                        table = $('#userApp').DataTable
+                            ({
+                                data: myData, destroy: true,
+                                columnDefs:
+                                    [{ 
+                                        "targets ": -1, "data": null,
+                                        "defaultContent": createBtn()
+                                    }],
+                                columns: [
+                                    { title: "appNo" }{ data: "appNo" }, { title: "DocName" }{ data: DocName }, { title: "AppTime" }{ data: "AppTime" }, { title: "AppDate" }{data:"AppDate"}, 
+                                    { title: "AppDay" }{ data: "AppDay" }, { title: "AppStatus" }{data:"AppStatus"},{ title: "Cancel" }
+                                ]
+                            });
+                    }
+
+                }
+            });
+$('#del').on('click', 'td button', function() {
+    var closestRow = $(this).closest('tr');
+    var arr = table.row(closestRow).data();
+    id = arr[0]
+    console.log(id)
+    $.ajax({
+        url: "/Patient/PostAppointments",
+        type: "POST",
+        data: { "id": id },
+        success: function() {
+            window.location = '/Patient/UserAppointments';
+        }
+    });
+});
+});
+</script>*@
+
+

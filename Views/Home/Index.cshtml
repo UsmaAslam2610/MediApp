@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    //Layout = "../shared/_UserLayout.cshtml";
+}
+<div class="container adjust-items-center mt-2">
+        <h3><b>Online Doctor Appointment System</b></h3>
+        <p>eHospital Systems is a customizable, comprehensive, and integrated Hospital Management System designed to manage all hospital operations. The ideal client base for eHospital is Healthcare facilities, multi-specialty clinics, and medical practitioners. Multi-Location functionality allows your hospitals, satellite clinics, and medical stores to be interconnected. Traditional approaches encompass paper-based information processing as well as resident work position and mobile data acquisition and presentation. The customizable alert software sends the text, IM, and email reminders and improves the quality of patient care. This hospital management software helps you to be aware of revenue streams, patient records, and other critical metrics in real-time at your fingertips. It allows electronic sharing of patient records with other providers and medical applications and manages the overall health of patients such as patients and providers can see lab results and history online, securely chat with providers, schedule the next appointment. Our EHR Software is user-friendly and with no error that is usually associated with handwriting. Pulling up server or cloud information is now quickly done with new technological computer systems, yielding optimal performance. Patients can find doctors and book online appointments based on specialty, rating, fees, and availability. Organizing doctor schedules, collating patient notes, and handling payment is effortless. Doctors and Patients can check the calendar on mobile phones and live less chaotic lives. Hospital Management System Software is available for on-premise and on-cloud installations. We developed eHospital Systems - Hospital Management Information System based on the best practices around the world.</p>
+     </div> 
+@section Login{
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1 justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="Login">Login as Doctor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="Login">Login</a>
+        </li>
+    </ul>
+</div>
+    
+}
+@section Carousel{
+   <div class="wrapper d-flex " style="display:inline;"> 
+            <div class="col">
+            <!-- Upper picture wali -->
+            <div id="Mycarousel" class="carousel slide w-100 mt-2" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#Mycarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#Mycarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#Mycarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#Mycarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#Mycarousel" data-bs-slide-to="4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img id="#imgCarousal" class="d-block w-100" src="~/images/1.jpg"
+                            alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><button class="btn btn-primary" type="button" asp-area="" asp-controller="Patient" asp-action="Login">Make An Appointment</button></h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img id="#imgCarousal" class="d-block w-100" src="~/images/2.jpg"
+                            alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><button class="btn btn-primary" type="button" asp-area="" asp-controller="Patient" asp-action="Login">Make An Appointment</button></h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img id="#imgCarousal" class="d-block w-100 "
+                            src="~/images/3.jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><button class="btn btn-primary" type="button" asp-area="" asp-controller="Patient" asp-action="Login">Make An Appointment</button></h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img id="#imgCarousal" class="d-block w-100 "
+                            src="~/images/4.jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><button class="btn btn-primary" type="button" asp-area="" asp-controller="Patient" asp-action="Login">Make An Appointment</button></h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img id="#imgCarousal" class="d-block w-100 "
+                            src="~/images/5.jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><button class="btn btn-primary" type="button" asp-area="" asp-controller="Patient" asp-action="Login">Make An Appointment</button></h5>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" data-bs-target="#Mycarousel" type="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-target="#Mycarousel" type="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+    </div>
+}
+
+     <br />
+<div class="table-responsive border p-2">
+    <h2 ><b>Doctor Schedule List</b></h2> 
+    <table id="example" class="display table table-hover table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th>Doctor Name</th>
+                <th>Eduction</th>
+                <th>Speciality</th>
+                <th>Appointment Date</th>
+                <th>Appointment Day</th>
+                <th>available Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+        <tfoot class="table-dark">
+            <tr>
+                <th>Doctor Name</th>
+                <th>Eduction</th>
+                <th>Speciality</th>
+                <th>Appointment Date</th>
+                <th>Appointment Day</th>
+                <th>available Time</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+
+    $(document).ready(function() {
+    $('#example').DataTable();
+    } );
+</script>

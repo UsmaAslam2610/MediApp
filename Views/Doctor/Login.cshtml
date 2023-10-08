@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "../shared/_LoginSignUpLayout.cshtml";
+}
+<div style="float: right; padding: 45px 50px 0px 0px;">
+     <form class="bg-light bg-opacity-50 border border-light rounded-5 shadow-5-strong p-5"method="post",action="/Doctor/Login">
+         <partial name="_PVLogin" />
+        <br>
+        <div class="form-group">
+            <button type="submit" class="form-control btn btn-primary submit px-3"  asp-area="" asp-controller="Doctor" asp-action="Login" style="font-family:serif;"
+                name='login' value="login">Login</button>
+        </div>
+        <p class="float-start">Not yet account <a asp-area="" asp-controller="Doctor" asp-action="SignUp"><b>Sign Up</b></a></p>
+    </form>
+</div>

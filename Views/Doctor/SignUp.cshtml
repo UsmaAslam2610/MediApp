@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "../shared/_LoginSignUpLayout.cshtml";
+}
+<div style="float: right; padding: 28px 50px 0px 0px; width: 450px;">
+    <form class="bg-light bg-opacity-50 border border-light rounded-5 shadow-5-strong p-5 pb-3 pt-md-3 " method="post",action="/Doctor/SignUp">
+        <h2 style="font-family:'Lucida Console'"><center>Sign Up</center></h2>
+        <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="bg-transparent form-control col-xs-4" id="demail" name="Email"
+            placeholder="Enter Email"  onkeyup="CheckDoctorExist();"/>
+        </div>
+        <div class="form-group">
+        <label class="form-label" id="ErrorMsj"></label>
+        </div>
+        <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="bg-transparent form-control col-xs-4" id="password" name="Password"
+            placeholder="Password" />
+        </div>
+        <div class="form-group">
+        <label class="form-label">Name</label>
+        <input type="text" class="bg-transparent form-control col-xs-4" id="username" name="Name"
+            placeholder="Username" />
+        </div>
+        <div class="form-group">
+        <label class="form-label">Address</label>
+        <input type="text" class="bg-transparent form-control col-xs-4" id="Address" name="Address" placeholder="Address" />
+        </div>
+        <div class="form-group">
+        <label class="form-label">Qualification</label>
+        <input type="text" class="bg-transparent form-control col-xs-4" id="Qualification" name="Qualification" placeholder="Qualification" />
+        </div>
+        <div class="form-group">
+        <label class="form-label">ExpertIn</label>
+        <input type="text" class="bg-transparent form-control col-xs-4" id="ExpertIn" name="ExpertIn" placeholder="ExpertIn" />
+        </div>
+        <div class="form-group">
+        <label class="form-label">Status</label>
+        <input type="text" class="bg-transparent form-control col-xs-4" id="Status" name="Status" placeholder="Status" />
+        </div>
+        <div class="form-group">
+        <label class="form-label">DateAdded</label>
+        <input type="text" class="bg-transparent form-control col-xs-4" id="DateAdded" name="DateAdded" placeholder="DateAdded" />
+        </div>
+        
+
+        <div class="form-group">
+            <button type="submit" class=" form-control btn btn-primary submit " asp-area="" asp-controller="Patient" asp-action="SignUp" style="font-family:serif;"
+                name='signup' value="signup">Sign Up</button>
+        </div>
+    </form>
+</div>
